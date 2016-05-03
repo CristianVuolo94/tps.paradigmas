@@ -119,3 +119,8 @@ crearDescendiente (x:xs) barbaro = crearDescendiente (xs) (x $ barbaro)
 descendientes :: Barbaro -> [Barbaro]
 descendientes (Barbaro nombre fuerza habilidades pertenencias) = (crearDescendiente pertenencias) (Barbaro nombre fuerza habilidades pertenencias) : descendientes ((crearDescendiente pertenencias) (Barbaro nombre fuerza habilidades pertenencias))
 
+-----------------------------------TEORIA (4): sinRepetidos--------------------------------------------- 
+
+{- Se puede usar la función sinRepetidos en el nombre de un barbaro porque es una cadena de caracteres.
+Pero no se puede usar en la lsita de pertenencias porque son funciones, y la funcion sinRepetidosesta 
+definida para datos de tipo Eq (Comparables)  -}
