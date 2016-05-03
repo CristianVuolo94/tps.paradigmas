@@ -1,4 +1,5 @@
 -- Intro
+
 *Main> emanuel
 Barbaro "Emanuel" 777 ["Comer","Dormir"] [<function>,<function>]
 
@@ -11,37 +12,42 @@ Barbaro "Astro" 1000 ["Robar"] [<function>,<function>]
 *Main> astor
 Barbaro "astor" 81 ["Conversar","Cantar","Tocar la flauta"] []
 
-*Main> luis
-Barbaro "luis" 100 ["Correr","Saltar","Saltar","Despertar"] [<function>,<function>]
-
 *Main> judith 
 Barbaro "Judith" 100 ["tejer","escribirPoesia"] [<function>,<function>]
 
------------------------------------FUNCIONES (1): Pertenencia--------------------------------------------
-*Main> espadas 70 emanuel
+-- FUNCIONES (1): Pertenencias
+
+*Main> espadas 70 juan
+Barbaro "Juan" 290 ["Volar Mucho"] [<function>,<function>,<function>]
+
+*Main> amuletosMisticos astro
+Barbaro "Astro" 1000 ["Robar","Clarividencia"] [<function>,<function>]
+
+*Main> varitasDefectuosas "Legeremancia" emanuel 
+Barbaro "Emanuel" 777 ["Comer","Dormir","Legeremancia"] []
+
+*Main> cuerda (espadas 70) (ardilla) emanuel 
 Barbaro "Emanuel" 917 ["Comer","Dormir"] [<function>,<function>]
 
-*Main> amuletosMisticos juan
-Barbaro "Juan" 150 ["Volar Mucho","Clarividencia"] [<function>,<function>,<function>]
+*Main> ardilla emanuel
+Barbaro "Emanuel" 777 ["Comer","Dormir"] [<function>,<function>]
 
-*Main> varitasDefectuosas "Accio" emanuel
-Barbaro "Emanuel" 777 ["Comer","Dormir","Accio"] []
+*Main> megafono emanuel 
+Barbaro "Emanuel" 777 ["COMERDORMIR"] [<function>,<function>]
 
-*Main> cuerda (espadas 85) amuletosMisticos astor
-Barbaro "astor" 251 ["Conversar","Cantar","Tocar la flauta","Clarividencia"] []
+*Main> megafonoBarbarico judith  
+Barbaro "Judith" 100 ["TEJERESCRIBIRPOESIA"] [<function>,<function>]
 
-*Main> megafono luis
-Barbaro "luis" 100 ["CORRERSALTARSALTARDESPERTAR"] [<function>,<function>]
+-- FUNCIONES (2): Aventuras
 
-*Main> megafonoBarbarico  luis
-Barbaro "luis" 100 ["CORRERSALTARSALTARDESPERTAR"] [<function>,<function>]
-
------------------------------------FUNCIONES (2): Aventuras--------------------------------------------- 
-*Main> sobrevivientes [emanuel,juan,astro,astor,luis] invasionDeDuendes
+*Main> sobrevivientes [emanuel,juan,astro,astor,luis] invasionDeDuendes 
 [Barbaro "astor" 81 ["Conversar","Cantar","Tocar la flauta"] []]
 
 *Main> sobrevivientes [emanuel,juan,astro,astor,luis] cremalleraDelTiempo 
 [Barbaro "Emanuel" 777 ["Comer","Dormir"] [<function>,<function>],Barbaro "Juan" 150 ["Volar Mucho"] [<function>,<function>,<function>],Barbaro "astor" 81 ["Conversar","Cantar","Tocar la flauta"] [],Barbaro "luis" 100 ["Correr","Saltar","Saltar","Despertar"] [<function>,<function>]]
+
+*Main> sobrevivientes [emanuel,juan,astro,astor,luis] ritualDeFechorias 
+[Barbaro "Emanuel" 777 ["Comer","Dormir"] [<function>,<function>],Barbaro "Juan" 150 ["Volar Mucho"] [<function>,<function>,<function>],Barbaro "Astro" 1000 ["Robar"] [<function>,<function>],Barbaro "astor" 81 ["Conversar","Cantar","Tocar la flauta"] [],Barbaro "luis" 100 ["Correr","Saltar","Saltar","Despertar"] [<function>,<function>]]
 
 *Main> sobrevivientes [emanuel,juan,astro,astor,luis] saqueo 
 [Barbaro "Astro" 1000 ["Robar"] [<function>,<function>]]
@@ -52,11 +58,9 @@ Barbaro "luis" 100 ["CORRERSALTARSALTARDESPERTAR"] [<function>,<function>]
 *Main> sobrevivientes [emanuel,juan,astro,astor,luis] caligrafia 
 [Barbaro "Juan" 150 ["Volar Mucho"] [<function>,<function>,<function>]]
 
-*Main> sobrevivientes [emanuel,juan,astro,astor,luis] ritualDeFechorias 
-[Barbaro "Emanuel" 777 ["Comer","Dormir"] [<function>,<function>],Barbaro "Juan" 150 ["Volar Mucho"] [<function>,<function>,<function>],Barbaro "Astro" 1000 ["Robar"] [<function>,<function>],Barbaro "astor" 81 ["Conversar","Cantar","Tocar la flauta"] [],Barbaro "luis" 100 ["Correr","Saltar","Saltar","Despertar"] [<function>,<function>]]
 
+-- FUNCIONES (3): Dinastia
 
------------------------------------FUNCIONES (3): Dinastia--------------------------------------------- 
 *Main> sinRepetidos [1,1,12,3,4,5,6,6,0,1,2,4,5,6,7]
 [12,3,0,1,2,4,5,6,7]
 
