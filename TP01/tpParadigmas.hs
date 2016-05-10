@@ -108,7 +108,7 @@ sinRepetidos (x:xs)
 
 --Aplicar las pertenencias sobre el mismo registro al cual pertenecen
 crearDescendiente :: [Pertenencia] -> Barbaro -> Barbaro
-crearDescendiente [] barbaro@(Barbaro nombre fuerza habilidades pertenencias)  = Barbaro (nombre++"*") fuerza (sinRepetidos habilidades) pertenencias
+crearDescendiente [] (Barbaro nombre fuerza habilidades pertenencias)  = Barbaro (nombre++"*") fuerza (sinRepetidos habilidades) pertenencias
 crearDescendiente (x:xs) barbaro = crearDescendiente (xs) (x $ barbaro)
 
 --Dado un barbaro se definen sus infinitos descendientes 
