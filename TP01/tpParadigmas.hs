@@ -103,12 +103,12 @@ sobrevivientes barbaros aventura = [barbaro | barbaro <- barbaros, aventura barb
 sinRepetidos :: (Eq a) => [a] -> [a]
 sinRepetidos [] = []
 sinRepetidos (x:xs) 
-	| any (==x) xs = sinRepetidos xs
-	| otherwise = [x]++(sinRepetidos xs)
+	| elem x xs = sinRepetidos xs
+	| otherwise = x:(sinRepetidos xs)
 
 --Aplicar las pertenencias sobre el mismo registro al cual pertenecen
 crearDescendiente :: [Pertenencia] -> Barbaro -> Barbaro
-crearDescendiente [] (Barbaro nombre fuerza habilidades pertenencias)  = Barbaro (nombre++"*") fuerza (sinRepetidos habilidades) pertenencias
+crearDescendiente [] barbaro@(Barbaro nombre fuerza habilidades pertenencias)  = Barbaro (nombre++"*") fuerza (sinRepetidos habilidades) pertenencias
 crearDescendiente (x:xs) barbaro = crearDescendiente (xs) (x $ barbaro)
 
 --Dado un barbaro se definen sus infinitos descendientes 
