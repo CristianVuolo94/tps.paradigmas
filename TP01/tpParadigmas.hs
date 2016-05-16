@@ -5,7 +5,7 @@ import Data.Char
 type Nombre = String 
 type Habilidad = String
 type Fuerza = Int
-type Pertenencia = Barbaro -> Barbaro 
+type Pertenencia = Barbaro -> Barbaro
 data Barbaro = Barbaro Nombre Fuerza [Habilidad] [Pertenencia] deriving (Show)
 
 judith = Barbaro "Judith" 100 ["tejer","escribirPoesia"] [ardilla, varitasDefectuosas "hacer magia"]
@@ -17,8 +17,7 @@ luis = Barbaro "luis" 100 ["Correr","Saltar","Saltar","Despertar"] [espadas 50, 
 
 -----------------------------------FUNCIONES AUXILIARES---------------------------------------------
 upperString :: String -> String
-upperString [] = []
-upperString (x:xs) = toUpper x : upperString xs 
+upperString cadena = map toUpper cadena 
 
 poderGritoDeGuerra :: [String] -> Int
 poderGritoDeGuerra habilidades = (length.concat) habilidades
@@ -29,13 +28,10 @@ numeroDeVocales :: String -> Int
 numeroDeVocales palabra = length [c | c <- palabra, elem c vocales]
 
 comprobarVocales :: [String]-> Bool
-comprobarVocales habilidades = all (>3) [numeroDeVocales habilidad | habilidad <- habilidades]
-
-esCapitalizada :: String -> Bool
-esCapitalizada (x:xs) = isUpper x 
+comprobarVocales habilidades = all ((>3).numeroDeVocales) habilidades
 
 comprobarCapitalizado :: [String] -> Bool
-comprobarCapitalizado  habilidades= all (==True) [esCapitalizada habilidad | habilidad <- habilidades]
+comprobarCapitalizado  habilidades= all ((==True).(\ (x:xs) -> isUpper x)) habilidades
 
 -----------------------------------FUNCIONES (1): Pertenencia--------------------------------------------
 
@@ -70,20 +66,21 @@ megafonoBarbarico = (cuerda ardilla megafono)
 -----------------------------------FUNCIONES (2): Aventuras--------------------------------------------- 
 
 type Aventura = Barbaro -> Bool
+
 --Un bárbaro sobrevive a una invasionDeDuendes si sabe  “tocar la flauta”
 invasionDeDuendes :: Barbaro -> Bool
-invasionDeDuendes (Barbaro _ _ habilidades _) = any (=="Tocar la flauta") habilidades
+invasionDeDuendes (Barbaro _ _ habilidades _) = elem "Tocar la flauta" habilidades
   
 --Un bárbaro sobrevive a una cremalleraDelTiempo si no tiene pulgares. Los bárbaros llamados Faffy y Astro no tienen pulgares, los demás sí.
 cremalleraDelTiempo :: Barbaro -> Bool
 cremalleraDelTiempo (Barbaro nombre _ _ _) 
-	| nombre == "Faffy" = False
-	| nombre == "Astro" = False
-	| otherwise = True
+	| nombre == "Faffy" = True
+	| nombre == "Astro" = True
+	| otherwise = False
 
 --Saqueo, el bárbaro debe tener la habilidad de robar y tener más de 80 de fuerza.
 saqueo :: Barbaro -> Bool
-saqueo (Barbaro _ fuerza habilidades _) = (fuerza>80) && (any (=="Robar") habilidades)
+saqueo (Barbaro _ fuerza habilidades _) = (fuerza>80) && (elem "Robar" habilidades)
 
 --gritoDeGuerra, el bárbaro debe tener un poder de grito de guerra igual a la cantidad de letras de sus habilidades. El poder necesario para aprobar es 4 veces la cantidad de pertenencias del bárbaro.
 gritoDeGuerra :: Barbaro -> Bool
@@ -99,16 +96,16 @@ ritualDeFechorias barbaro = saqueo barbaro||gritoDeGuerra barbaro||caligrafia ba
 
 --La funcion sobrevivientes toma una lista de bárbaros y una aventura, y diga cuáles bárbaros la sobreviven
 sobrevivientes :: [Barbaro] -> Aventura -> [Barbaro]
-sobrevivientes barbaros aventura = [barbaro | barbaro <- barbaros, (aventura barbaro == True)]
+sobrevivientes barbaros aventura = [barbaro | barbaro <- barbaros, aventura barbaro]
 
 
 -----------------------------------FUNCIONES (3): Dinastia--------------------------------------------- 
 -- Elimina elementos repetidos de una lista
 sinRepetidos :: (Eq a) => [a] -> [a]
-sinRepetidos listaNum 
-	| listaNum == [] = []
-	| any (== head listaNum) (tail listaNum) = sinRepetidos (tail listaNum)
-	| otherwise = (take 1 listaNum) ++ sinRepetidos (tail listaNum)
+sinRepetidos [] = []
+sinRepetidos (x:xs) 
+	| elem x xs = sinRepetidos xs
+	| otherwise = x:(sinRepetidos xs)
 
 --Aplicar las pertenencias sobre el mismo registro al cual pertenecen
 crearDescendiente :: [Pertenencia] -> Barbaro -> Barbaro
@@ -118,3 +115,8 @@ crearDescendiente lista (Barbaro nombre fuerza habilidades pertenencias)  = (\(B
 descendientes :: Barbaro -> [Barbaro]
 descendientes barbaro@(Barbaro nombre fuerza habilidades pertenencias) = (crearDescendiente pertenencias) barbaro : descendientes ((crearDescendiente pertenencias) barbaro)
 
+-----------------------------------TEORIA (4): sinRepetidos--------------------------------------------- 
+
+{- Se puede usar la función sinRepetidos en el nombre de un barbaro porque es una cadena de caracteres.
+Pero no se puede usar en la lista de pertenencias porque son funciones, y la funcion sinRepetidosesta 
+definida para datos de tipo Eq (Comparables)  -}
