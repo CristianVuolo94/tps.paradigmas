@@ -82,3 +82,17 @@ Barbaro "Judith" 100 ["TEJERESCRIBIRPOESIA"] [<function>,<function>]
 *Main> take 6 (descendientes judith )
 [Barbaro "Judith*" 100 ["tejer","escribirPoesia","hacer magia"] [],Barbaro "Judith**" 100 ["tejer","escribirPoesia","hacer magia"] [],Barbaro "Judith***" 100 ["tejer","escribirPoesia","hacer magia"] [],Barbaro "Judith****" 100 ["tejer","escribirPoesia","hacer magia"] [],Barbaro "Judith*****" 100 ["tejer","escribirPoesia","hacer magia"] [],Barbaro "Judith******" 100 ["tejer","escribirPoesia","hacer magia"] []]
 
+*Main> crearDescendiente [espadas 200,varitasDefectuosas "hacer magia"] astro
+Barbaro "Astro*" 1400 ["Robar","hacer magia"] []
+
+*Main> crearDescendiente [ardilla, ardilla, ardilla] luis
+Barbaro "luis*" 100 ["Correr","Saltar","Despertar"] [<function>,<function>]
+
+*Main> crearDescendiente [megafono, amuletosMisticos] emanuel
+Barbaro "Emanuel*" 777 ["COMERDORMIRCLARIVIDENCIA"] [<function>,<function>]
+
+*Main> crearDescendiente [megafono, espadas 421, ardilla, ardilla] juan
+Barbaro "Juan*" 992 ["VOLAR MUCHO"] [<function>,<function>,<function>]
+
+*Main> crearDescendiente [espadas 10, espadas 200, ardilla, amuletosMisticos] judith
+Barbaro "Judith*" 520 ["tejer","escribirPoesia","Clarividencia"] [<function>,<function>]
