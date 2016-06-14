@@ -1,6 +1,12 @@
 % Ejercicio 1: Salen juntos
-saleCon(Alguien, Otro):-pareja(Alguien, Otro).
-saleCon(Alguien, Otro):-pareja(Otro, Alguien).
+personaje(marsellus).
+personaje(mia).
+personaje(pumkin).
+personaje(honeyBunny).
+saleCon(Alguien, Otro):- 
+    personaje(Alguien), pareja(Alguien, Otro).
+saleCon(Alguien, Otro):- 
+    personaje(Otro), pareja(Otro, Alguien).
 
 % Ejercicio 2: Mas Parejas
 pareja(bernardo, bianca).
@@ -13,7 +19,7 @@ trabajaPara(Alguien, bernardo):-trabajaPara(marsellus, Alguien), Alguien \= jule
 trabajaPara(Alguien, george):-saleCon(Alguien, bernardo).
 
 % Ejercicio 4: Fidelidad
-esFiel(A):-saleCon(A,B),saleCon(A,C),B==C, A \= vincent, not(A==bernardo).
+esFiel(Alguien):-saleCon(Alguien,Otro1),saleCon(Alguien,Otro2), Otro1==Otro2 , Alguien\= vincent, not(Alguien==bernardo).
 
 % Ejercicio 5: Acatar Ordenes
 acataOrden(Alguien,Otro):-trabajaPara(Alguien, Otro).
