@@ -22,9 +22,11 @@ sanCayetano/1: Es quien a todos los que tiene cerca les da trabajo (algún encar
 Asumí que existen amigo/2, encargo/3, personaje/2 y trabajaPara/2
 >>
 sanCayetano(Alguien):-
-    famigo(Alguien,_).
+    forall(personaje(Alguien,_),amigo(Alguien,_)).
 sanCayetano(Alguien):-
-    encargo(Alguien,_,_).
+    trabajaPara(Alguien,Empleado),
+    forall(personaje(_,Empleado),encargo(Alguien,Empleado,_)).
 sanCayetano(Alguien):-
-    trabajaPara(_,Alguien).
+    forall(personaje(Alguien,_),trabajaPara(_,Alguien)).
+    
 >>
