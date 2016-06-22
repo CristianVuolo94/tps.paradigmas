@@ -38,7 +38,7 @@ respetabilidad(Respetables,NoRespetables) :-
     findall(P,(personaje(P,_),not(respetable(P))), ListaNoRespetables),
     length(ListaNoRespetables,NoRespetables).
 
-%Ejercicio 5: Más atareado 
+%Ejercicio 5: Ms atareado 
 cantidadEncargos(Personaje,Cantidad) :- 
     findall(Personaje,encargo(_,Personaje,_),ListaE),
     length(ListaE,Cantidad).
@@ -47,5 +47,3 @@ masAtareado(Quien) :-
     cantidadEncargos(Quien,Max),
     forall((personaje(Elem,_),Elem\=Quien), 
     (cantidadEncargos(Elem,Cantidad),Cantidad < Max)).
-
-    

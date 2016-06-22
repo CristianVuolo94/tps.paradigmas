@@ -1,0 +1,36 @@
+output.txt
+
+%Ejercicio 1: Personajes peligrosos
+?-  esPeligroso(Quien).
+Quien = pumkin ;
+Quien = honeyBunny ;
+Quien = vincent ;
+Quien = jules ;
+Quien = bernardo.
+
+%Ejercicio 2: San Cayetano
+?- sanCayetano(Quien).
+Quien = bernardo ;
+Quien = bernardo.
+
+%Ejercicio 3: Nivel de respeto
+?- nivelRespeto(winston,Nivel).
+Nivel = 10.
+
+?- nivelRespeto(marsellus,Nivel).
+Nivel = 20.
+
+?- nivelRespeto(mia,Nivel).
+Nivel = 0.1.
+
+?- nivelRespeto(vincent,Nivel).
+Nivel = 15.
+
+%Ejercicio 4: Personajes respetables
+?- respetabilidad(Respetables,NoRespetables).
+Respetables = 3,
+NoRespetables = 7.
+
+%Ejercicio 5: Más atareado
+?- masAtareado(Quien).
+Quien = winston.
