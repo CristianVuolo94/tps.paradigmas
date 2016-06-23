@@ -1,8 +1,8 @@
 ---Pruebas ejercicio 1---
-ム  saleCon(mia,Quien).
+?- saleCon(mia,Quien).
 Quien = marsellus.
 
-ム  saleCon(Quien, Cual).
+?- saleCon(Quien, Cual).
 Quien = marsellus,
 Cual = mia ;
 Quien = pumkin,
@@ -12,11 +12,11 @@ Cual = marsellus ;
 Quien = honeyBunny,
 Cual = pumkin.
 
-ム  saleCon(pumkin,_).
+?- saleCon(pumkin,_).
 yes.
 
 ---Pruebas ejercicio 2---
-ム  pareja(Quien, Cual).
+?- pareja(Quien, Cual).
 Quien = marsellus,
 Cual = mia ;
 Quien = pumkin,
@@ -30,22 +30,22 @@ Cual = bernardo ;
 Quien = charo,
 Cual = bernardo.
 
-ム  pareja(bianca, Quien).
+?- pareja(bianca, Quien).
 Quien = bernardo.
 
-ム  pareja(charo, _).
+?- pareja(charo, _).
 yes.
 
-ム  pareja(bernardo, Quien).
+?- pareja(bernardo, Quien).
 Quien = bianca ;
 Quien = charo.
 
 ---Pruebas ejercicio 3---
-ム  trabajaPara(Quien, george).
+?- trabajaPara(Quien, george).
 Quien = bianca ;
 Quien = charo.
 
-ム  trabajaPara(Quien, Cual).
+?- trabajaPara(Quien, Cual).
 Quien = marsellus,
 Cual = vincent ;
 Quien = marsellus,
@@ -61,11 +61,11 @@ Cual = george ;
 Quien = charo,
 Cual = george.
 
-ム  trabajaPara(vincent, Quien).
+?- trabajaPara(vincent, Quien).
 Quien = bernardo.
 
 ---Pruebas ejercicio 4---
-ム  esFiel(Alguien).
+?- esFiel(Alguien).
 Alguien = marsellus ;
 Alguien = pumkin ;
 Alguien = mia ;
@@ -73,21 +73,21 @@ Alguien = honeyBunny ;
 Alguien = bianca ;
 Alguien = charo.
 
-ム  esFiel(vincent).
+?- esFiel(vincent).
 no.
 
-ム  esFiel(mia).
+?- esFiel(mia).
 yes.
 
 ---Pruebas ejercicio 5---
-ム  trabajaPara(vincent, Quien).
+?- trabajaPara(vincent, Quien).
 Quien = bernardo.
 
-ム  trabajaPara(Quien, bernardo).
+?- trabajaPara(Quien, bernardo).
 Quien = vincent ;
 Quien = winston.
 
-ム  trabajaPara(Empleador, Empleado).
+?- trabajaPara(Empleador, Empleado).
 Empleador = marsellus,
 Empleado = vincent ;
 Empleador = marsellus,

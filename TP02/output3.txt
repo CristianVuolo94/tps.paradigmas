@@ -1,0 +1,31 @@
+%Ejercicio 1: Escuadron  (OJO, habria que corregir porque devuelve varias veces la misma respuesta)
+?- escuadron([marsellus]).
+yes ;
+yes.
+
+?- escuadron([vincent]).
+no.
+
+?- escuadron(_).
+yes ;
+yes ;
+yes ;
+yes ;
+yes ;
+yes ;
+yes ;
+yes ;
+yes ;
+yes.
+
+?- escuadron(Personajes).
+Personajes = [vincent,marsellus,winston] ;
+Personajes = [vincent,marsellus,winston] ;
+Personajes = [vincent,marsellus] ;
+Personajes = [vincent,marsellus] ;
+Personajes = [vincent,winston] ;
+Personajes = [vincent,winston] ;
+Personajes = [marsellus,winston] ;
+Personajes = [marsellus,winston] ;
+Personajes = [marsellus] ;
+Personajes = [marsellus].
